@@ -8,23 +8,23 @@ Testing the main menu functionality and input validation
 class TestMenu(unittest.TestCase):
     def testBMISelection(self):
         data = 1
-        result = menu(data)
+        result = menu(data, True)
         self.assertEqual(result, 5)
 
 
     def testRetirementSelection(self):
         data = 2
-        result = menu(data)
+        result = menu(data, True)
         self.assertEqual(result, 3)
 
     def testQuitSelection(self):
         data = 3
-        result = menu(data)
+        result = menu(data, True)
         self.assertEqual(result, 2)
 
     def testValidInput(self):
         data = 4
-        result = menu(data)
+        result = menu(data, True)
         self.assertEqual(result, 1)
 
 """
@@ -37,15 +37,15 @@ class TestBMI(unittest.TestCase):
         heightFT = 6
         heightIN = 0
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
-        self.assertEqual(result, 20.83)
+        result = bmi(data, True)
+        self.assertEqual(result, 21)
 
     def testInvalidWeight(self):
         weight = "f"
         heightFT = 6
         heightIN = 0
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
 
     def testInvalidHeightFT(self):
@@ -53,7 +53,7 @@ class TestBMI(unittest.TestCase):
         heightFT = "six"
         heightIN = 0
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
     
     def testInvalidHeightFTTwo(self):
@@ -61,7 +61,7 @@ class TestBMI(unittest.TestCase):
         heightFT = -1
         heightIN = 0
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
 
     def testInvalidHeightFTThree(self):
@@ -69,7 +69,7 @@ class TestBMI(unittest.TestCase):
         heightFT = "6 feet"
         heightIN = 0
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
 
     def testInvalidHeightIN(self):
@@ -77,7 +77,7 @@ class TestBMI(unittest.TestCase):
         heightFT = 6
         heightIN = "zero"
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
 
     def testInvalidHeightINTwo(self):
@@ -85,7 +85,7 @@ class TestBMI(unittest.TestCase):
         heightFT = 6
         heightIN = -1
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
     
     def testInvalidHeightINThree(self):
@@ -93,7 +93,7 @@ class TestBMI(unittest.TestCase):
         heightFT = 6
         heightIN = 14
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, True)
         self.assertEqual(result, False)
 
     def testInvalidHeightINFour(self):
@@ -101,7 +101,7 @@ class TestBMI(unittest.TestCase):
         heightFT = 6
         heightIN = "0 inches"
         data = (weight, heightFT, heightIN)
-        result = bmi(data)
+        result = bmi(data, testMode = True)
         self.assertEqual(result, False)
         
 

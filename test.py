@@ -108,43 +108,43 @@ class TestRetirement(unittest.TestCase):
     def testValidInput(self):
         age = 21
         salary = 50000
-        percentSaved = .25
+        percentSaved = 25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
-        self.asssertEqual(result, 81)
+        self.assertEqual(result, 81)
 
     def testInvalidAge(self):
         age = -1
         salary = 50000
-        percentSaved = .25
+        percentSaved = 25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
-        self.asssertEqual(result, False)
+        self.assertEqual(result, False)
 
     def testInvalidAgeTwo(self):
         age = "Twenty One"
         salary = 50000
-        percentSaved = .25
+        percentSaved = 25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
-        self.asssertEqual(result, False)
+        self.assertEqual(result, False)
 
     def testInvalidAgeThree(self):
         age = 100
         salary = 50000
-        percentSaved = .25
+        percentSaved = 25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
-        self.asssertEqual(result, False)
+        self.assertEqual(result, False)
 
     def testInvalidSalary(self):
         age = 21
         salary = -1
-        percentSaved = .25
+        percentSaved = 25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
@@ -153,7 +153,7 @@ class TestRetirement(unittest.TestCase):
     def testInvalidSalaryTwo(self):
         age = 21
         salary = "Fifty Thousand Dollars"
-        percentSaved = .25
+        percentSaved = 25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
@@ -162,7 +162,7 @@ class TestRetirement(unittest.TestCase):
     def testInvalidSaved(self):
         age = 21
         salary = 50000
-        percentSaved = -.25
+        percentSaved = -25
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
@@ -180,7 +180,7 @@ class TestRetirement(unittest.TestCase):
     def testInvalidSavedThree(self):
         age = 21
         salary = 50000
-        percentSaved = 1
+        percentSaved = 125
         goal = 1000000
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
@@ -189,7 +189,7 @@ class TestRetirement(unittest.TestCase):
     def testInvalidGoal(self):
         age = 21
         salary = 50000
-        percentSaved = .25
+        percentSaved = 25
         goal = -24
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
@@ -198,13 +198,13 @@ class TestRetirement(unittest.TestCase):
     def testInvalidGoalTwo(self):
         age = 21
         salary = 50000
-        percentSaved = .25
+        percentSaved = 25
         goal = "One Million Dollars"
         data = (age, salary, percentSaved, goal)
         result = retirement(data, True)
         self.assertEqual(result, False)
 
-        
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -48,6 +48,14 @@ class TestBMI(unittest.TestCase):
         result = bmi(data, True)
         self.assertEqual(result, False)
 
+    def testInvalidWeightTwo(self):
+        weight = -1
+        heightFT = 6
+        heightIn = 0
+        data = (weight, heightFT, heightIn)
+        result = bmi(data, True)
+        self.assertEqual(result, False)
+
     def testInvalidHeightFT(self):
         weight = 150
         heightFT = "six"
@@ -104,6 +112,9 @@ class TestBMI(unittest.TestCase):
         result = bmi(data, testMode = True)
         self.assertEqual(result, False)
 
+"""
+Testing the retirement calculator
+"""
 class TestRetirement(unittest.TestCase):
     def testValidInput(self):
         age = 21

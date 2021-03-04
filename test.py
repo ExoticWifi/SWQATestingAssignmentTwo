@@ -103,6 +103,107 @@ class TestBMI(unittest.TestCase):
         data = (weight, heightFT, heightIN)
         result = bmi(data, testMode = True)
         self.assertEqual(result, False)
+
+class TestRetirement(unittest.TestCase):
+    def testValidInput(self):
+        age = 21
+        salary = 50000
+        percentSaved = .25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.asssertEqual(result, 81)
+
+    def testInvalidAge(self):
+        age = -1
+        salary = 50000
+        percentSaved = .25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.asssertEqual(result, False)
+
+    def testInvalidAgeTwo(self):
+        age = "Twenty One"
+        salary = 50000
+        percentSaved = .25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.asssertEqual(result, False)
+
+    def testInvalidAgeThree(self):
+        age = 100
+        salary = 50000
+        percentSaved = .25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.asssertEqual(result, False)
+
+    def testInvalidSalary(self):
+        age = 21
+        salary = -1
+        percentSaved = .25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
+    def testInvalidSalaryTwo(self):
+        age = 21
+        salary = "Fifty Thousand Dollars"
+        percentSaved = .25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
+    def testInvalidSaved(self):
+        age = 21
+        salary = 50000
+        percentSaved = -.25
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
+    def testInvalidSavedTwo(self):
+        age = 21
+        salary = 50000
+        percentSaved = "Twenty Five Percent"
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
+    def testInvalidSavedThree(self):
+        age = 21
+        salary = 50000
+        percentSaved = 1
+        goal = 1000000
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
+    def testInvalidGoal(self):
+        age = 21
+        salary = 50000
+        percentSaved = .25
+        goal = -24
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
+    def testInvalidGoalTwo(self):
+        age = 21
+        salary = 50000
+        percentSaved = .25
+        goal = "One Million Dollars"
+        data = (age, salary, percentSaved, goal)
+        result = retirement(data, True)
+        self.assertEqual(result, False)
+
         
 
 if __name__ == '__main__':
